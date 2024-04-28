@@ -33,7 +33,7 @@ const updateProfileValidator = joi.object({
     heightUnit: joi.string().valid('cm','in').required(),
     weightValue: joi.number().required(),
     weightUnit: joi.string().valid('kg', 'lbs').required(),
-    activityLevel: joi.string().valid('daily', 'often', 'sometimes', 'rarely').required(),
+    // activityLevel: joi.string().valid('daily', 'often', 'sometimes', 'rarely').required(),
     gender: joi.string().valid('male','female').required(),
     address: joi.string().optional(),
 

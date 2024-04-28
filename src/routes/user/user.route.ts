@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createProfile, currentUser, fetchAllUsers, selectWearable, updateProfile } from "../../controllers";
+import { createProfile, currentUser, editGoals, fetchAllUsers, selectWearable, updateProfile } from "../../controllers";
 import authMiddleware from "../../middlewares/auth.middleware";
 import { ROLES } from "../../utils/constants";
 import { createProfileValidation, selectWearableValidation, updateProfileValidation } from "../../validator";
@@ -16,6 +16,7 @@ export default class UserAPI {
         this.router.post('/profile/create',authMiddleware(Object.values(ROLES)), createProfileValidation,createProfile);
         this.router.put('/profile/update',authMiddleware(Object.values(ROLES)),updateProfileValidation,updateProfile);
         this.router.put('/wearable',authMiddleware(Object.values(ROLES)),selectWearableValidation,selectWearable);
+        this.router.put('/edit-goal',authMiddleware(Object.values(ROLES)),editGoals);
     }
 
     getRouter() {
